@@ -102,10 +102,11 @@ button:hover {
 
 }
 
-@media (max-width: 380px) {
+@media (max-width: 643px) {
   .galeria {
     grid-template-columns: repeat(2, 1fr);
     padding: 10px;
+    margin-top: 700px;
   }
 }
 
