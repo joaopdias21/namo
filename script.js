@@ -11,7 +11,7 @@ function mostrarMensagem() {
 
 window.onload = () => {
   const musica = document.getElementById("musicaFundo");
-  musica.volume = 0.2;
+  musica.volume = 0.4;
 }
 
 function toggleMusica() {
