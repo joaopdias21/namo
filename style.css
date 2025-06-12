@@ -1,5 +1,6 @@
 body {
   margin: 0;
+
   font-family: 'Comic Sans MS';
   background: linear-gradient(to top right, #a1c4fd, #c2e9fb); /* tons azulados suaves */
   height: 100vh;
@@ -12,6 +13,7 @@ body {
 }
 
 .container {
+  
   text-align: center;
   background: white;
   padding: 30px;
@@ -92,10 +94,12 @@ button:hover {
 }
 
 .galeria {
+   margin-top: 100px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 15px;
   justify-items: center;
+
 }
 
 @media (max-width: 380px) {
@@ -112,6 +116,13 @@ button:hover {
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(173, 216, 230, 0.6); /* azul claro */
   transition: transform 0.3s ease;
+}
+@media (max-width: 380px) {
+  .galeria img {
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4; /* mantém proporção 180x240 */
+  }
 }
 
 .galeria img:hover {
