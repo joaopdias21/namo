@@ -106,7 +106,7 @@ button:hover {
   .galeria {
     grid-template-columns: repeat(2, 1fr);
     padding: 10px;
-    margin-top: 500px;
+    margin-top: 700px;
   }
 }
 
@@ -119,13 +119,7 @@ button:hover {
   box-shadow: 0 0 10px rgba(173, 216, 230, 0.6); /* azul claro */
   transition: transform 0.3s ease;
 }
-@media (max-width: 380px) {
-  .galeria img {
-    max-width: 100%;
-    height: auto;
-    aspect-ratio: 3 / 4; /* mantém proporção 180x240 */
-  }
-}
+
 
 .galeria img:hover {
   transform: scale(1.05);
