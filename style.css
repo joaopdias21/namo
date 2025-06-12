@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: 'Comic Sans MS', cursive;
+  font-family: 'Comic Sans MS';
   background: linear-gradient(to top right, #a1c4fd, #c2e9fb); /* tons azulados suaves */
   height: 100vh;
   display: flex;
