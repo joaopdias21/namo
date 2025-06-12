@@ -106,7 +106,7 @@ button:hover {
   .galeria {
     grid-template-columns: repeat(2, 1fr);
     padding: 10px;
-    margin-top: 700px;
+    margin-top: 500px;
   }
 }
 
