@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feliz Dia dos Namorados 💖</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container" id="modal">
+    <h1>Feliz Dia dos Namorados, meu amor! 💘</h1>
+    <p class="mensagem" id="mensagem">Clique no botão para ver uma surpresa!</p>
+    <button onclick="mostrarMensagem()">Ver Surpresa 💌</button>
+  </div>
+
+  <div class="conteudo-escondido" id="conteudo" style="display: none;">
+    <div class="galeria">
+      <img src="balao.jpeg" alt="Nós 1" />
+      <img src="beijo.jpeg" alt="Nós 2" />
+      <img src="palhacada.jpeg" alt="Nós 10" />
+      <img src="praia.jpeg" alt="Nós 3" />
+      <img src="engracada.jpeg" alt="Nós 5" />
+      <img src="miranteguaruja.jpeg" alt="Nós 6" />
+      <img src="preferida.jpeg" alt="Nós 9" />
+      <img src="praiarevelion.jpeg" alt="Nós 11" />
+    </div>
+    <p class="texto-final">
+      Cada momento contigo é mágico. Obrigado por existir na minha vida!💞
+      <br>
+      EU TE AMO PARA SEMPRE MINHA PRINCESA ❤️❤️❤️
+    </p>
+
+  </div>
+
+  <div class="hearts" id="hearts"></div>
+
+  <script src="script.js"></script>
+
+  <audio id="musicaFundo" autoplay loop>
+  <source src="maria.mp3" type="audio/mpeg" />
+  Seu navegador não suporta áudio HTML5.
+</audio>
+<button id="botaoMusica" onclick="toggleMusica()" style="display: none;">
+  🔊 Pausar Música
+</button>
+<div class="modal" id="modalImagem">
+  <div class="modal-conteudo">
+    <button class="modal-fechar" onclick="fecharModal()">×</button>
+    <img id="imagemModal" src="" alt="Imagem ampliada" />
+    <div class="modal-legenda" id="textoModal"></div>
+  </div>
+</div>
+
+
+</body>
+</html>

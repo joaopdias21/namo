@@ -1,0 +1,235 @@
+body {
+  margin: 0;
+  font-family: 'Comic Sans MS', cursive;
+  background: linear-gradient(to top right, #a1c4fd, #c2e9fb); /* tons azulados suaves */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow-x: hidden; 
+  overflow-y: auto;
+}
+
+.container {
+  text-align: center;
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.3); /* azul claro */
+}
+
+button {
+  background: #4da6ff; /* azul suave */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 15px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #1c86ee; /* azul mais forte */
+}
+
+.hearts {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
+
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: red; /* azul céu */
+  transform: rotate(45deg);
+  animation: float 5s linear forwards;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: red;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+
+.heart::after {
+  left: -10px;
+  top: 0;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+.conteudo-escondido {
+  text-align: center;
+  padding: 20px;
+  color: #fff;
+}
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 15px;
+  justify-items: center;
+}
+
+@media (max-width: 380px) {
+  .galeria {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.galeria img {
+  width: 100%;
+  max-width: 180px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(173, 216, 230, 0.6); /* azul claro */
+  transition: transform 0.3s ease;
+}
+
+.galeria img:hover {
+  transform: scale(1.05);
+}
+
+.texto-final {
+  font-size: 20px;
+  background-color: #5dade2; /* azul alegre */
+  padding: 15px;
+  border-radius: 10px;
+  display: inline-block;
+  color: white;
+}
+
+#botaoMusica {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  background-color: rgba(0, 123, 255, 0.9);
+  border: none;
+  border-radius: 20px;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: white;
+}
+
+#botaoMusica:hover {
+  background-color: rgba(0, 100, 255, 0.9);
+}
+
+@media (max-width: 428px) {
+  #botaoMusica {
+    bottom: 12px;
+    right: 12px;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 30, 0.6); /* tom azulado escuro */
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-conteudo {
+  background-color: #e0f7fa; /* azul bebê */
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow: hidden;
+  animation: surgir 0.3s ease-out;
+}
+
+@keyframes surgir {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-conteudo img {
+  max-width: 100%;
+  max-height: 60vh;
+  border-radius: 10px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.modal-legenda {
+  font-size: 18px;
+  color: #003366;
+  font-style: italic;
+}
+
+
+.modal-fechar {
+  position: absolute;
+  top: -15px;        
+  right: -15px; 
+  font-size: 25px;
+  background: none;
+  border: none;
+  color: #003366;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+body.modal-aberto {
+  overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
