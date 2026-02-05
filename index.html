@@ -3,19 +3,104 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Feliz Dia dos Namorados 💖</title>
+  <title>Por favor, leia com atenção</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
 
 </head>
 <body>
   <div class="container" id="modal">
-    <h1>Feliz Dia dos Namorados, meu amor! 💘</h1>
-    <p class="mensagem" id="mensagem">Clique no botão para ver uma surpresa!</p>
-    <button onclick="mostrarMensagem()">Ver Surpresa 💌</button>
+    <h1>Leia com o coração aberto</h1>
+    <p class="mensagem" id="mensagem">É só algo que eu precisava te dizer sem te interromper os seus sentimentos, e respeitando o seu limite.</p>
+    <button onclick="mostrarMensagem()">Ler</button>
   </div>
 
   <div class="conteudo-escondido" id="conteudo" style="display: none;">
+  <div class="layout-lado-a-lado">
+
+    <!-- TEXTO -->
+    <div class="texto-lateral">
+      <h2>O que eu preciso te dizer</h2>
+
+      <p>
+        Eu entendo hoje, que as minhas ações foram algo que se repetiu e te machucou ao longo dos anos.
+      </p>
+
+      <p>
+        Independente da minha intenção, o impacto existiu. E eu não cuidei disso como deveria. Não fui sincero com a pessoa que mais deveria ser.
+        Deixei a desejar em vários pontos, te fiz sentir magoada, insegura, fiz você duvidar de você mesma...
+
+      </p>
+
+      <p>
+        Eu nunca priorizei os seus sentimentos, e nunca te acolhi da forma que você merecia.
+        Não te protegi, nao te passei segurança e sempre jogava a culpa de tudo em você.
+        Quando na verdade, o errado sempre fui eu.
+      </p>
+
+      <p>
+        Eu te peço <strong>PERDÃO</strong>  um bilhão de vezes, por fazer você se sentir dessa maneira, 
+        de ter sido essa pessoa pra você.
+      </p>
+
+      <p>
+        Mas nós sabemos que desculpas, perdões, arrependimentos, não adiantam de nada se ficarem só em 
+        promessas. 
+        As palavras são faladas, mas as ações tem que ser cumpridas.
+      </p>
+
+      <br>
+      <br>
+
+      <p>
+        <strong>Isso é justamente o que eu vou fazer se voce me permitir.</strong>
+        Sinceramente, estou muito triste de ver a pessoa que fui pra você, e estou muito arrependido
+        de ver as atitudes que eu tomava quando você queria ser acolhida, e eu te afastava.
+      </p>
+
+      <p>
+        Não passou muito tempo, e eu entendo você não confiar e acreditar nem um pouco em mim.
+        Mas vou te dizer que toda a minha mente mudou, todas as minhas ações mudaram e vão mudar.
+        Isso me fez ver a vida, ver o nosso relacionamento, ver você de outra forma.
+
+        Você sempre me alertou, sempre falou tudo, para mim ser uma pessoa melhor, mas eu era um moleque,
+        era uma pessoa com o ego alto, manipulador. 
+        Que achava que iria resolver todos os seus problemas sozinho, que não precisava de ninguém falando o que 
+        deveria fazer, porque achava que sabia de tudo do mundo, e achava que tudo que falavam, era pra atacar.
+      </p>
+
+      <p>
+        Escrevo isso porque precisava reconhecer com clareza e te mostrar que eu me arrependo que reconheço que te fiz muito mal 
+        e te mostrar o que deve ser feito.
+      </p>
+
+
+
+          <div class="botao-final">
+  <button onclick="irParaFinal()">Continuar</button>
+</div>
+    </div>
+
+
+
+
+    <!-- GALERIA -->
+    <div class="galeria">
+      <img src="balao.jpeg" alt="Nós 1" />
+      <img src="beijo.jpeg" alt="Nós 2" />
+      <img src="palhacada.jpeg" alt="Nós 3" />
+      <img src="praia.jpeg" alt="Nós 4" />
+      <img src="engracada.jpeg" alt="Nós 5" />
+      <img src="ubatuba.jpeg" alt="Nós 6" />
+      <img src="recente.jpeg" alt="Nós 7" />
+      <img src="momentos.jpeg" alt="Nós 8" />
+    </div>
+
+  </div>
+</div>
+
+
+  <!-- <div class="conteudo-escondido" id="conteudo" style="display: none;">
     <div class="galeria">
       <img src="balao.jpeg" alt="Nós 1" />
       <img src="beijo.jpeg" alt="Nós 2" />
@@ -32,19 +117,19 @@
       EU TE AMO PARA SEMPRE MINHA PRINCESA ❤️❤️❤️
     </p>
 
-  </div>
+  </div> -->
 
   <div class="hearts" id="hearts"></div>
 
   <script src="script.js"></script>
 
-  <audio id="musicaFundo" autoplay loop>
+  <!-- <audio id="musicaFundo" autoplay loop>
   <source src="maria.mp3" type="audio/mpeg" />
   Seu navegador não suporta áudio HTML5.
 </audio>
 <button id="botaoMusica" onclick="toggleMusica()" style="display: none;">
   🔊 Pausar Música
-</button>
+</button> -->
 <div class="modal" id="modalImagem">
   <div class="modal-conteudo">
     <button class="modal-fechar" onclick="fecharModal()">×</button>
@@ -53,6 +138,11 @@
   </div>
 </div>
 
+<script>
+  function irParaFinal() {
+    window.location.href = "final.html";
+  }
+</script>
 
 </body>
 </html>
