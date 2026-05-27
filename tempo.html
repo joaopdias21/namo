@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Nosso Tempo ❤️</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body class="tempo-body">
+
+<a href="index.html" class="btn-voltar">
+
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="22"
+    height="22"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M15 18l-6-6 6-6"/>
+  </svg>
+
+</a>
+
+  <section class="contador-section">
+
+    <div class="contador-box">
+
+      <h1>
+        Estamos juntos há 
+      </h1>
+
+      <div class="contador">
+
+        <div class="tempo-card">
+          <span id="anos">0</span>
+          <p>Anos</p>
+        </div>
+
+        <div class="tempo-card">
+          <span id="dias">0</span>
+          <p>Dias</p>
+        </div>
+
+        <div class="tempo-card">
+          <span id="horas">0</span>
+          <p>Horas</p>
+        </div>
+
+        <div class="tempo-card">
+          <span id="minutos">0</span>
+          <p>Minutos</p>
+        </div>
+
+        <div class="tempo-card">
+          <span id="segundos">0</span>
+          <p>Segundos</p>
+        </div>
+
+      </div>
+
+      <p class="frase-final">
+        E cada segundo ao seu lado vale a pena ❤️
+      </p>
+
+      <a href="frases.html" class="btn-continuar">
+  Continuar ❤️
+</a>
+
+    </div>
+
+  </section>
+
+
+  
+
+  <script>
+
+    // DATA QUE VOCÊS COMEÇARAM
+    const dataNamoro = new Date("2023-05-27T09:32:00");
+
+    function atualizarContador(){
+
+      const agora = new Date();
+
+      const diferenca = agora - dataNamoro;
+
+      const segundos = Math.floor(diferenca / 1000);
+      const minutos = Math.floor(segundos / 60);
+      const horas = Math.floor(minutos / 60);
+      const dias = Math.floor(horas / 24);
+      const anos = Math.floor(dias / 365);
+
+      document.getElementById("anos").innerText = anos;
+      document.getElementById("dias").innerText = dias;
+      document.getElementById("horas").innerText = horas % 24;
+      document.getElementById("minutos").innerText = minutos % 60;
+      document.getElementById("segundos").innerText = segundos % 60;
+
+    }
+
+    atualizarContador();
+
+    setInterval(atualizarContador, 1000);
+
+  </script>
+
+</body>
+</html>

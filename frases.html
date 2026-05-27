@@ -1,0 +1,746 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Uma Carta Pra Você ❤️</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Poppins', sans-serif;
+
+      min-height:100vh;
+
+      background:
+      linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.85)),
+      url('preferida.jpeg');
+
+      background-size:cover;
+      background-position:center;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      overflow-y:auto;
+      overflow-x:hidden;
+
+      padding:20px;
+    }
+
+.container{
+
+  position:relative;
+
+  width:100%;
+  max-width:400px;
+
+  display:flex;
+  flex-direction:column;
+
+  align-items:center;
+  justify-content:center;
+
+  gap:30px;
+}
+
+.btn-abrir{
+
+  margin-top:30px;
+
+  padding:15px 30px;
+
+  border:none;
+  border-radius:18px;
+
+  background:
+  linear-gradient(45deg,#ff4d6d,#ff758f);
+
+  color:white;
+
+  font-size:1rem;
+  font-weight:600;
+
+  cursor:pointer;
+
+  box-shadow:
+  0 10px 30px rgba(255,77,109,.35);
+
+  transition:.3s;
+}
+
+
+.btn-fechar{
+
+  display:none;
+
+  position:absolute;
+
+  bottom:-220px;
+
+  left:50%;
+
+  transform:translateX(-50%);
+
+  padding:14px 28px;
+
+  border:none;
+  border-radius:18px;
+
+  background: linear-gradient(45deg,#ff4d6d,#ff758f);
+
+
+  border:1px solid rgba(255,255,255,.1);
+
+  color:white;
+
+  font-size:1rem;
+  font-weight:600;
+
+  backdrop-filter:blur(10px);
+
+  cursor:pointer;
+
+  transition:.3s;
+
+  z-index:999;
+}
+
+    .envelope{
+
+      position:relative;
+      /* margin-top: 50px; */
+
+      width:360px;
+      height:260px;
+
+      cursor:pointer;
+
+      transition:.8s;
+    }
+
+    .envelope.open{
+      transform:translateY(0px);
+    }
+
+    .base{
+      position:absolute;
+      bottom:0;
+
+      width:100%;
+      height:100%;
+
+      background:#376cff;
+
+      border-radius:10px;
+
+      overflow:hidden;
+
+      box-shadow:
+      0 20px 50px rgba(0,0,0,.4);
+    }
+
+    .base::before{
+      content:'';
+
+      position:absolute;
+      top:0;
+      left:0;
+
+      width:100%;
+      height:100%;
+
+      clip-path:polygon(0 0, 50% 55%, 100% 0);
+
+      background:#6f97ff;
+    }
+
+    .tampa{
+      position:absolute;
+
+      top:0;
+      left:0;
+
+      width:100%;
+      height:120px;
+
+      background:#3d6df5;
+
+      clip-path:polygon(0 0, 50% 100%, 100% 0);
+
+      transform-origin:top;
+
+      transition:1s;
+
+      z-index:1;
+    }
+
+    .envelope.open .tampa{
+      transform:rotateX(180deg);
+      opacity:.4;
+    }
+
+    .letter{
+      opacity:0;
+      visibility:hidden;
+      box-shadow:
+      0 15px 40px rgba(0,0,0,.25);
+      position:absolute;
+
+      left:50%;
+      bottom:10px;
+
+      transform:translateX(-50%);
+
+      width:95%;
+      min-height:220px;
+      max-height:70vh;
+
+      background:white;
+
+      border-radius:15px;
+
+      padding:25px;
+
+      z-index:2;
+
+      transition:1s;
+
+      overflow:hidden;
+    }
+
+    .envelope.open .letter{
+      opacity:1;
+      visibility:visible;
+      bottom:-140px;
+      min-height:420px;
+      max-height:75vh;
+      z-index:10;
+      transform:translateX(-50%) translateY(0px);
+    }
+
+    .letter h2{
+      color:#ff4d6d;
+      margin-bottom:20px;
+      text-align:center;
+    }
+
+#texto{
+
+  color:#111;
+
+  line-height:1.9;
+
+  font-size:1.35rem;
+
+  font-weight:700;
+
+  letter-spacing:.3px;
+
+  white-space:pre-line;
+}
+
+    .btn-abrir{
+      margin-top:30px;
+
+      padding:15px 30px;
+
+      border:none;
+      border-radius:18px;
+
+      background:
+      linear-gradient(45deg,#ff4d6d,#ff758f);
+
+      color:white;
+
+      font-size:1rem;
+      font-weight:600;
+
+      cursor:pointer;
+
+      box-shadow:
+      0 10px 30px rgba(255,77,109,.35);
+
+      transition:.3s;
+    }
+
+    .btn-abrir:hover{
+      transform:
+      translateY(-3px)
+      scale(1.03);
+    }
+
+    .btn-voltar{
+
+      position:fixed;
+
+      top:20px;
+      left:20px;
+
+      width:52px;
+      height:52px;
+
+      border-radius:18px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      text-decoration:none;
+
+      color:white;
+
+      background:rgba(255,255,255,.08);
+
+      border:1px solid rgba(255,255,255,.08);
+
+      backdrop-filter:blur(15px);
+
+      box-shadow:
+        0 8px 30px rgba(0,0,0,.25);
+
+      z-index:999;
+
+      transition:.3s;
+    }
+
+    .btn-voltar:hover{
+
+      transform:
+        translateY(-2px)
+        scale(1.04);
+
+      background:rgba(255,255,255,.14);
+    }
+
+    @media(max-width:768px){
+
+      .envelope{
+        width:340px;
+        height:240px;
+      }
+
+      .envelope.open .letter{
+        min-height:480px;
+      }
+
+      #texto{
+        font-size:.95rem;
+      }
+
+ .btn-fechar{
+
+  display:none;
+
+  margin-top:15px;
+
+  padding:14px 28px;
+
+  border:none;
+}
+
+.btn-fechar:hover{
+
+  transform:
+  translateY(-2px)
+  scale(1.02);
+
+  background:rgba(255,255,255,.15);
+}
+
+
+.surpresa-container{
+
+  display:none;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  margin-top:40px;
+
+  width:100%;
+}
+
+.btn-surpresa{
+
+  padding:18px 35px;
+
+  border:none;
+
+  border-radius:20px;
+
+  color:white;
+
+  font-size:1.1rem;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  background:
+  linear-gradient(45deg,#4d7dff,#6ea8ff);
+
+  box-shadow:
+  0 0 20px rgba(77,125,255,.6);
+
+  animation:pulsar 1.2s infinite;
+
+  transition:.3s;
+}
+
+@keyframes pulsar{
+
+  0%{
+    transform:scale(1);
+    box-shadow:0 0 15px rgba(77,125,255,.5);
+  }
+
+  50%{
+    transform:scale(1.05);
+    box-shadow:0 0 30px rgba(77,125,255,.9);
+  }
+
+  100%{
+    transform:scale(1);
+    box-shadow:0 0 15px rgba(77,125,255,.5);
+  }
+
+}
+
+.video-box{
+
+  display:none;
+
+  margin-top:25px;
+
+  width:100%;
+
+  max-width:380px;
+
+  background:rgba(255,255,255,.08);
+
+  border:1px solid rgba(255,255,255,.1);
+
+  backdrop-filter:blur(15px);
+
+  border-radius:25px;
+
+  padding:12px;
+
+  box-shadow:
+  0 20px 50px rgba(0,0,0,.35);
+}
+
+.video-box video{
+
+  width:100%;
+
+  border-radius:18px;
+
+  display:block;
+}
+
+
+.love-message-final{
+
+  display:none;
+
+  width:100%;
+
+  margin-top:40px;
+
+  animation:fadeUp 1.2s ease;
+}
+
+@keyframes fadeUp{
+
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+}
+
+.glass{
+
+  width:100%;
+
+  max-width:380px;
+
+  background:rgba(255,255,255,.08);
+
+  border:1px solid rgba(255,255,255,.1);
+
+  border-radius:30px;
+
+  padding:35px 25px;
+
+  backdrop-filter:blur(15px);
+
+  box-shadow:
+  0 20px 50px rgba(0,0,0,.35);
+
+  text-align:center;
+}
+
+.glass h2{
+
+  margin-bottom:25px;
+
+  font-size:2rem;
+}
+
+#typingTextFinal{
+
+  line-height:2;
+
+  font-size:1.15rem;
+
+  color:white;
+
+  opacity:.92;
+
+  white-space:pre-line;
+}
+
+    }
+
+  </style>
+</head>
+<body>
+
+  <a href="tempo.html" class="btn-voltar">
+
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M15 18l-6-6 6-6"/>
+    </svg>
+
+  </a>
+
+  <div class="container">
+
+    <div class="envelope" id="envelope">
+
+      <div class="tampa"></div>
+
+      <div class="base"></div>
+
+      <div class="letter">
+
+        <h2>Pra Você ❤️</h2>
+
+        <p id="texto"></p>
+
+      </div>
+
+    </div>
+
+<button class="btn-abrir" id="btnAbrir">
+  Abrir Carta ❤️
+</button>
+
+<button class="btn-fechar" id="btnFechar">
+  Fechar Carta 💌
+</button>
+
+<div class="surpresa-container" id="surpresaContainer">
+
+  <button class="btn-surpresa" id="btnSurpresa">
+    Ver Surpresa 🎁
+  </button>
+
+  <div class="video-box" id="videoBox">
+
+    <video controls playsinline>
+      <source src="video.mp4" type="video/mp4">
+    </video>
+
+  </div>
+
+  <section class="love-message-final" id="loveMessageFinal">
+
+  <div class="glass">
+
+    <p id="typingTextFinal"></p>
+
+  </div>
+
+</section>
+
+</div>
+
+  </div>
+
+  <script>
+
+    const envelope = document.getElementById('envelope');
+    const botao = document.getElementById('btnAbrir');
+    const btnFechar = document.getElementById('btnFechar');
+
+    const mensagem = `
+Você foi a melhor coisa que aconteceu na minha vida.
+
+Cada momento ao seu lado vira uma memória inesquecível.
+
+Obrigado por estar comigo nesses 3 anos.
+
+E mesmo depois de tanto tempo... De tanta coisa...
+
+Eu ainda me apaixono por você todos os dias ❤️
+    `;
+
+    let index = 0;
+
+    function escreverTexto(){
+
+    if(index < mensagem.length){
+
+      document.getElementById('texto').innerHTML += mensagem.charAt(index);
+
+      index++;
+
+      setTimeout(escreverTexto, 40);
+
+    }else{
+
+      btnFechar.style.display = 'block';
+
+    }
+
+    }
+
+    botao.addEventListener('click', () => {
+
+      envelope.classList.add('open');
+
+      botao.style.display = 'none';
+
+      setTimeout(() => {
+        escreverTexto();
+      }, 1200);
+
+    });
+
+btnFechar.addEventListener('click', () => {
+
+  envelope.classList.remove('open');
+
+  document.getElementById('texto').innerHTML = '';
+
+  index = 0;
+
+  botao.style.display = 'block';
+
+  btnFechar.style.display = 'none';
+
+  setTimeout(() => {
+
+  surpresaContainer.style.display = 'flex';
+
+}, 1200);
+});
+
+
+
+const surpresaContainer =
+document.getElementById('surpresaContainer');
+
+const btnSurpresa =
+document.getElementById('btnSurpresa');
+
+const videoBox =
+document.getElementById('videoBox');
+
+btnSurpresa.addEventListener('click', () => {
+
+  videoBox.style.display = 'block';
+
+  btnSurpresa.style.display = 'none';
+
+});
+
+
+const video =
+document.querySelector('video');
+
+const loveMessageFinal =
+document.getElementById('loveMessageFinal');
+
+const typingTextFinal =
+document.getElementById('typingTextFinal');
+
+const mensagemFinal = `
+
+Obrigado por compartilhar a vida comigo.
+
+Esses 3 anos foram os melhores da minha vida.
+
+E eu mal posso esperar
+pelos próximos capítulos da nossa história
+
+E tenho certeza de que vamos comemorar essa data mais muitos e muitos anos 
+
+Eu te amo minha princesa❤️
+
+`;
+
+let indexFinal = 0;
+
+function escreverMensagemFinal(){
+
+  if(indexFinal < mensagemFinal.length){
+
+    typingTextFinal.innerHTML +=
+    mensagemFinal.charAt(indexFinal);
+
+    indexFinal++;
+
+    setTimeout(escreverMensagemFinal, 40);
+  }
+
+}
+
+video.addEventListener('ended', () => {
+
+  loveMessageFinal.style.display = 'block';
+
+  escreverMensagemFinal();
+
+});
+
+  </script>
+
+</body>
+</html>
+
